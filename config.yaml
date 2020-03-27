@@ -6,12 +6,16 @@ environments:
     vpc_cidr: 10.10.0.0/16
     stack_name: development-devops
   test:
+    cluster_size: "2"
+    cluster_instance_type: t2.micro
     vpc_cidr: 10.20.0.0/16
     stack_name: test-devops
   acceptance:
     vpc_cidr: 10.30.0.0/16
     stack_name: acceptance-devops
   production:
+    cluster_size: "2"
+    cluster_instance_type: t2.small
     vpc_cidr: 10.40.0.0/16
     stack_name: production-devops
 subnets:
@@ -50,9 +54,6 @@ applications:
     env:
       SOME_ENV_VAR: Exposed
       SOME_OTHER_VAR: desopxE
-      # SOME_REFFED_VAR: :foobar.ef
-      # SOME_OTHER_STACK_VAR: :vpc_stack.ref("Outputs.VpcId")
-      # SOME_ENV_VAR: ${MY_ENV_VAR}
   hello-world2:
     image: tutum/hello-world
     container_port: 80
@@ -63,4 +64,4 @@ applications:
     env:
       SOME_ENV_VAR: Exposed
       SOME_OTHER_VAR: desopxE
-domain_name: "mysubdomain.masterofcloud.com"
+domain_name: "jeffreyvink.masterofcloud.com"

@@ -38,6 +38,12 @@ module InfraStack
         end
       end
 
+      resource :jeffrey_stack,
+               type: "AWS::CloudFormation::Stack" do |r|
+        r.property(:template_url) { "jeffreystack" }
+        r.property(:tags) { default_tags }
+      end
+
       create_applications
     end
   end
