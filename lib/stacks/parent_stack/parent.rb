@@ -13,12 +13,14 @@ module InfraStack
       end
 
       resource :acm_stack,
+               amount: 0,
                type: "AWS::CloudFormation::Stack" do |r|
         r.property(:template_url) { "acmstack" }
         r.property(:tags) { default_tags }
       end
 
       resource :ecs_stack,
+               amount: 0,
                type: "AWS::CloudFormation::Stack" do |r|
         r.property(:template_url) { "ecsstack" }
         r.property(:parameters) do
