@@ -1,12 +1,12 @@
-module DbStack
+module OneStack
   extend ActiveSupport::Concern
   include Rubycfn
 
   included do
     include Concerns::GlobalVariables
     include Concerns::SharedMethods
-    include DbStack::DBS
+    include OneStack::Bucket
 
-    description generate_stack_description("DbStack")
+    description generate_stack_description("OneStack")
   end
 end
