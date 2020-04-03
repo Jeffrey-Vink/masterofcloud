@@ -70,6 +70,12 @@ module InfraStack
         r.property(:template_url) { "dbstack" }
       end
 
+      resource :lambda_stack,
+               amount: ENV["ASSIGNMENT_FOUR"] == "true" ? 1 : 0,
+               type: "AWS::CloudFormation::Stack" do |r|
+        r.property(:template_url) { "lambdastack" }
+      end
+
       create_applications
     end
   end
